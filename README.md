@@ -1,2 +1,2 @@
 # Fruit's Season Availability and Health Benefits Checker
-This package's main two functions allow a user to check what fruits are in season and the health benefits of these fruits but it is important to mention that it is limited to ten fruits. When using the package the user must make sure to use the print function or it will not run as it is supposed to.
+This package's two main functions allow users to check what fruits are in season and their health benefits. However, it is essential to mention that the package is limited to ten fruits. When using the package, the user must use the print function, or it will not run as it should. I have added some example print functions below each function, but the user can make their own based on what they are looking for.
