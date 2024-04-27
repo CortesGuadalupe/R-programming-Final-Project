@@ -1,0 +1,93 @@
+---
+title: "Fruit Checker"
+author: "Guadalupe Cortes"
+date: "2024-04-26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+## Function One: Is the fruit in Season?
+
+```{r pressure, echo=FALSE}
+is_fruit_in_season <- function(fruit, in_season) {
+  # List of fruits and their seasons
+  fruit_seasons <- list(
+    "apple" = c("fall", "winter", "spring", "summer"),
+    "banana" = c("fall", "winter", "spring", "summer"),
+    "watermelon" = c("summer"),
+    "strawberry" = c("spring", "summer"),
+    "pineapple" = c("fall", "winter", "spring"),
+    "cherry" = c("summer"),
+    "cantaloupe"= c("summer"),
+    "blueberry" = c("summer"),
+    "peach" = c("summer"),
+    "kiwi" = c("fall","winter", "spring")
+  )
+
+  # Converting input to lowercase for case-insensitivity
+  fruit <- tolower(fruit)
+
+  # Checking if the fruit is in the predefined list
+  if (!fruit %in% names(fruit_seasons)) {
+    return(paste(fruit, "is not in the list of known fruits."))
+  }
+
+  # Converting the input seasons to lowercase and splitting them by comma
+  in_seasons <- strsplit(tolower(in_season), ",")[[1]]
+
+  # Checking if any of the input seasons match the fruit's seasons
+  if (any(sapply(in_seasons, function(season) season %in% fruit_seasons[[fruit]]))) {
+    return(paste("Yes,", fruit, "is in season during", in_season))
+  } else {
+    return(paste("No,", fruit, "is not in season during", in_season))
+  }
+}
+
+print(is_fruit_in_season("celery","fall"))
+print(is_fruit_in_season("raspberries","summer"))
+print(is_fruit_in_season("cherry","spring"))
+print(is_fruit_in_season("kiwi", "fall"))
+print(is_fruit_in_season("banana","spring"))
+print(is_fruit_in_season("apple", "winter"))
+
+```
+
+## Function Two: What are the health benefits of the fruit?
+
+```{r pressure, echo=FALSE}
+fruit_health_benefits <- function(fruit) {
+  # Define health benefits for each fruit
+  health_benefits <- list(
+    "apple" =  "Apples are a good source of nutrients, including fiber, vitamin C, and antioxidants which can help support healthy digestion, brain health, and weight management.",
+    "banana" = "Bananas are a rich source of nutrients, such as potassium and vitamin B6. Helps increase fiber intake, supports heart health, maintains digestive health, provides energy, and promotes muscle function.",
+    "watermelon" = "Watermelon reduces blood pressure and improves circulation to support heart health. Watermelon also helps reduce muscle soreness, manage weight, aid digestion, and protect your skin.",
+    "strawberry" = "Strawberries have antioxidants such as vitamin C, which can support your immune system and may lower your chances of getting sick when you're around germs. They may also help curb inflammation, manage your blood sugar, and guard against health conditions like high cholesterol, cancer, heart disease, stroke, and diabetes",
+    "pineapple" = "Pineapple has high levels of vitamin C, high in manganese, good for digestion, various antioxidants,anti-inflammatory and pain relieving properties.",
+    "cherry" = "Cherries are heart healthy, lower blood pressure, lower cholesterol, helps manage blood sugar,help with inflammatory conditions, and help one sleep.",
+    "cantaloupe"= "Cantaloupe's hydrate you, protect agaisnt damange from age related muscular degenration, help prevent asthma, lower blood pressure, reduce risk of cancer, aid digestion, and nourish skin and promote hair growth.",
+    "blueberry" = "Blueberries can be protective, manage blood pressure, reduce the risk of heart disease, regulate blood sugar, maintain eye health,support immune health, reduce gastrointestinal symptoms, and can ease urinary tract infection symptoms.",
+    "peach" = "Peaches are a good source of vitamins C and K, which your body uses to heal wounds. The Vitamin E boosts your immune system and helps your eyes and skin stay healthy. Small amounts of zinc are also good in helping your blood clot and your thyroid work, in addition to helping your vision.",
+    "kiwi" = "Kiwis are rich in vitamin C, copper, and vitamin K and contain smaller portions of many other important nutrients. Their impressive nutrition profile supports many avenues of health, including digestion, weight management, and blood sugar control. They also support heart and eye health and a healthy immune system."
+  )
+
+  # Convert input to lowercase for case-insensitivity
+  fruit <- tolower(fruit)
+
+  # Check if the fruit is in the predefined list
+  if (!fruit %in% names(health_benefits)) {
+    return(paste("Sorry, information about the health benefits of", fruit, "is not available."))
+  }
+
+  # Return the health benefits of the specified fruit
+  return(health_benefits[[fruit]])
+}
+
+print(fruit_health_benefits("raspberry"))
+print(fruit_health_benefits("apple"))
+print(fruit_health_benefits("peach"))
+```
+
