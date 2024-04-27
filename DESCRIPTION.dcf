@@ -1,0 +1,16 @@
+Package: FruitPackage
+Type: Package
+Title: Fruit's Season Availability and Health Benefits Checker
+Version: 0.1.0
+Author: Guadalupe Cortes
+Maintainer: Guadalupe Cortes <cortesg@usf.edu>
+Description: FruitPackage offers functions to determine if a fruit is in season and provides insights into their health benefits. 
+  The function is_fruit_in_season() is used to check if a fruit is currently in season, whether is it in the Fall, Winter, Spring 
+  or Summer and fruit_health_benefits() to discover the nutritional advantages of various fruits. Within this package, you can 
+  explore ten common fruits, which include apple banana, watermelon, strawberry, pineapple, cherry, cantaloupe, blueberry, peach,
+  and kiwi. Must make sure to use the print function or it will not run. 
+  Ex.print(is_fruit_in_season("banana","spring")) or print(fruit_health_benefits("peach"))
+License: UCL(Creative Commons license)
+Encoding: UTF-8
+LazyData: true
+
